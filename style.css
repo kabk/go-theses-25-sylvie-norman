@@ -1,0 +1,386 @@
+:root {
+    font-size: clamp(14px, 2vw, 24px); /* Responsive font-size */
+}
+
+/* HTML and Body Styles */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 10%;
+}
+
+body {
+    position: relative;
+    background: url(images/protest.jpg) no-repeat center center fixed;
+    background-size: cover;
+    font-family: Poppins, sans-serif;
+    font-weight: 400;
+    font-size: medium;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-x: clip;
+}
+
+/* Monsieur La Doulaise, cursive; Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap');
+/* Pinyon Script, cursive; Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+/* Montserrat, sans-serif; Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+/* Arapey, serif; Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Arapey:ital@0;1&display=swap');
+/* Poppins, sans-serif; Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Thesis Title Section */
+.beginning {
+    height: 100vh;
+    font-family: "Monsieur La Doulaise", cursive;
+    font-size: 3.9rem;
+    font-weight: medium;
+    color: #000000;
+    display: grid;
+    place-content: center;
+}
+
+.beginning a {
+    width: min(80%, 35ch);
+    margin-inline: auto;
+    margin-bottom: 0.8rem;
+    text-decoration: none;
+    text-align: center;
+    color: inherit;
+}
+
+.beginning a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: max(2px, .05em);
+}
+
+/* Question Styling */
+.question {
+    font-size: 0.6rem;
+    font-family: poppins, sans-serif;
+    font-weight: medium;
+    text-align: center;
+    width: min(90%, 100ch);
+    margin-inline: auto;
+    margin-top: 1rem;
+    color: #000000;
+    background: rgba(255, 255, 255, 0.652);
+    padding: 0.7rem;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+/* Horizontal Scrollable Snap Gallery */
+.horizontal-snap {
+    margin: 0 auto;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 2rem;
+    height: 60vh;
+    width: 90%;
+    text-align: center;
+    padding: 0.5rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+}
+
+.horizontal-snap img {
+    max-width: 50vw;
+    height: 50vh;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Caption Styling */
+.caption {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.5rem;
+    color: #000000;
+    text-align: center;
+    text-shadow: 
+        0px 0px 6px white,   
+        0px 0px 12px white,  
+        0px 0px 20px white,  
+        0px 0px 30px white,  
+        0px 0px 40px white;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    left: -270px; 
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    padding-top: 80px;
+    padding-left: 20px;
+    transition: left 0.3s ease-in-out;
+    overflow-y: auto;
+    z-index: 1000; /* Ensures sidebar stays on top */
+
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar .small {
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+/* Navigation */
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar li {
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.sidebar a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 0.8rem;
+    display: block;
+    padding: 5px;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+.toggle-btn {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    background: #222;
+    color: white;
+    border: none;
+    width: 30px; 
+    height: 30px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px; /* Adjusts icon size inside */
+    cursor: pointer;
+    transition: background 0.3s;
+    z-index: 1001; 
+    border-radius: 5px; 
+}
+
+.toggle-btn:hover {
+    background: #444;
+}
+
+/* Main Content */
+.main-content {
+    padding: 40px;
+    flex-grow: 1;
+    line-height: 5;
+}
+
+/* Footnote Text */
+.footnote-text {
+    position: absolute;
+    left: calc(100% - 25ch - 20px);
+    width: 25ch;
+}
+
+.footnote-text img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* popup styling for when you click on glossary word */
+.popup-trigger {
+    position: relative;
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.popup {
+    font-size: 12px;
+    visibility: hidden;
+    max-width: 90vw;
+    width: 220px;
+    background-color: rgb(255, 192, 206);
+    color: black;
+    text-align: center;
+    padding: 8px;
+    border-radius: 5px;
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    word-wrap: break-word;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.popup-trigger:hover .popup, .popup-trigger:focus .popup {
+    visibility: visible;
+    opacity: 1;
+}
+
+@media (max-width: 600px) {
+    .popup {
+        font-size: 8px;
+        max-width: 80vw;
+    }
+}
+
+/* Footnotes */
+
+.footnotes-list {
+    background: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    line-height: 1.6;
+    margin: 1rem auto;
+    max-width: 90%;
+    width: fit-content;
+    word-wrap: break-word;
+    font-size: 0.8rem;
+    display: block;
+
+    list-style-position: inside; /* Moves numbers inside, aligning with text */
+    padding-left: 1rem; /* Adjusts indentation */
+}
+
+.footnotes-list li { 
+    padding: 1rem; 
+    font-weight: 400;
+    font-size: 0.8rem; 
+    line-height: 1.4;
+    border-radius: 8px;
+}
+
+.footnote a, .footnotereverse a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.footnote a {
+    color: rgb(43, 0, 255);
+}
+
+.footnote a:hover {
+    text-shadow: 5px 1px 4px rgba(255, 0, 183, 0.5);
+}
+
+.footnotereverse a {
+    color: rgb(255, 0, 170);
+}
+
+.footnotereverse a:hover {
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.678);
+}
+
+/* Text Sections */
+.text_abstract, .text_introduction, .text_thesis {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    line-height: 1.6;
+    margin: 1rem auto;
+    max-width: 90%;
+    width: fit-content;
+    word-wrap: break-word;
+    font-size: 0.8rem;
+}
+
+.text_bibliography {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    line-height: 1.6;
+    margin: 1rem auto;
+    max-width: 90%;
+    word-wrap: break-word;
+    font-size: 0.5rem;
+}
+
+/* bottom section - personal information */
+.thesis-info {
+    background: rgba(252, 205, 237, 0.598);
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    line-height: 1.4;
+    max-width: 70%;
+    width: fit-content;
+    margin: 3rem auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.thesis-info div {
+    padding: 0.3rem 0;
+}
+
+.thesis-info p {
+    margin: 0.2rem 0;
+    font-size: 0.8rem;
+}
+
+.additional-info p {
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+/* the star symbol to link back to footnote image */
+.image-anchor {
+    text-decoration: none; 
+    color: rgb(250, 177, 214); 
+    font-size: 0.9rem; 
+    vertical-align: middle; 
+    line-height: 1; 
+    margin-left: 0.2rem; 
+    position: relative;
+    top: -2px; 
+}
+
+/* title above each chapter */
+h2 {
+    font-family: 'Monsieur La Doulaise', cursive;
+    font-size: 2.6rem; 
+    font-weight: 100;
+    word-spacing: 0.5rem; 
+    margin-top: 4rem;  
+    margin-bottom: 0.5rem;
+    line-height: 1.5; 
+    text-align: center;
+    text-shadow: 
+        0px 0px 10px rgba(255, 255, 255, 0.9),   
+        0px 0px 20px rgba(255, 255, 255, 0.8),  
+        0px 0px 30px rgba(255, 255, 255, 0.7),  
+        0px 0px 40px rgba(255, 255, 255, 0.6),  
+        0px 0px 50px rgba(255, 255, 255, 0.5);  
+}
