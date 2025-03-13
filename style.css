@@ -24,12 +24,7 @@ body {
 
 /* Monsieur La Doulaise, cursive; Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap');
-/* Pinyon Script, cursive; Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
-/* Montserrat, sans-serif; Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-/* Arapey, serif; Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Arapey:ital@0;1&display=swap');
+
 /* Poppins, sans-serif; Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
@@ -44,6 +39,7 @@ body {
 .beginning {
     height: 100vh;
     font-family: "Monsieur La Doulaise", cursive;
+    font-style: normal;
     font-size: 3.9rem;
     font-weight: medium;
     color: #000000;
@@ -97,10 +93,13 @@ body {
 }
 
 .horizontal-snap img {
-    max-width: 50vw;
     height: 50vh;
     object-fit: cover;
     object-position: center;
+}
+
+.horizontal-snap > a {
+    scroll-snap-align: center;
 }
 
 /* Caption Styling */
@@ -216,6 +215,7 @@ body {
     cursor: pointer;
     font-weight: bold;
     display: inline-block;
+    color: rgb(255, 141, 166);
 }
 
 .popup {
@@ -370,6 +370,7 @@ body {
 /* title above each chapter */
 h2 {
     font-family: 'Monsieur La Doulaise', cursive;
+    font-style: normal;
     font-size: 2.6rem; 
     font-weight: 100;
     word-spacing: 0.5rem; 
